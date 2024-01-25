@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Scooter Usage History</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='global.css') }}">
+</head>
+<body>
+    <p><a href="/view_all_scooters">Go back</a></p>
+    <h2>Scooter Usage History for Scooter ID {{ scooter_data.scooter_id }}</h2>
+
+    <h3>Usage History</h3>
+    <table>
+        <tr>
+            <th>Usage ID</th>
+            <th>Time Used</th>
+            <th>Distance Covered</th>
+            <th>Usage Date</th> <!-- Add a new column for Usage Date -->
+        </tr>
+        {% for entry in scooter_data.scooter_usage_history %}
+        <tr>
+            <td>{{ entry.UsageID }}</td>
+            <td>{{ entry.TimeUsed }}</td>
+            <td>{{ entry.DistanceCovered }}</td>
+            <td>{{ entry.UsageDate }}</td> <!-- Display Usage Date -->
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

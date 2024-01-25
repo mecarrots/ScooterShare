@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Usage History</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='global.css') }}">
+</head>
+<body>
+    <p><a href="/customer_page_render">Back to Customer Page</a></p>
+    <h1>Usage History</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Usage ID</th>
+                <th>Scooter ID</th>
+                <th>Time Used</th>
+                <th>Distance Covered</th>
+                <th>Usage Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for entry in usage_history["scooter_usage_history"] %}
+            <tr>
+                <td>{{ entry["UsageID"] }}</td>
+                <td>{{ entry["ScooterID"] }}</td>
+                <td>{{ entry["TimeUsed"] }}</td>
+                <td>{{ entry["DistanceCovered"] }}</td>
+                <td>{{ entry["UsageDate"] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

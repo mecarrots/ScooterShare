@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Reviews</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='global.css') }}">
+</head>
+<body>
+    <p><a href="/view_available_scooters">Back to Available Scooters</a></p>
+    <h1>Customer Reviews</h1>
+    {% for customer in customers.customer %}
+        {% if customer['user_id'] == user_id %}
+            <h3>Name: {{ customer['first_name'] }} {{ customer['last_name'] }}</h3>
+        {% endif %}
+    {% endfor %}
+    <!-- Form to add a new review -->
+    <form action="/add_review" method="POST">
+        <input type="hidden" name="user_id" value="{{ user_id }}">
+        <table>
+            <thead>
+                <tr>
+                    <th>Colour</th>
+                    <th>Cost Per Time</th>
+                    <th>Location</th>
+                    <th>Make</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style="text-align: center;">{{ scooter_id.scooter_details['Colour'] }}</td>
+                    <td style="text-align: center;">{{ scooter_id.scooter_details['CostPerTime'] }}</td>
+                    <td style="text-align: center;">{{ scooter_id.scooter_details['Location'] }}</td>
+                    <td style="text-align: center;">{{ scooter_id.scooter_details['Make'] }}</td>
+                </tr>
+            </tbody>
+        </table><br>
+        <input type="hidden" name="scooter_id" value="{{ scooter_id.scooter_details.ScooterID }}">
+
+        <label for="review">Review:</label><br>
+        <textarea id="review" name="review" required></textarea><br>
+
+        <label for="rating">Rating:</label>
+        <input type="number" id="rating" name="rating" min="1" max="5" required><br>
+
+        <input type="submit" value="Submit Review">
+    </form>
+</body>
+</html>

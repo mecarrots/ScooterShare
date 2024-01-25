@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Customer Scooter Usage History</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='global.css') }}">
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: center;
+        }
+
+        table, th, td {
+            border: 1px solid black;
+        }
+
+        th, td {
+            padding: 10px;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <p><a href="/admin_page">Go back</a></p>
+    <h2>Scooter Usage History for User</h2>
+
+    <h3>Usage History</h3>
+    <table>
+        <tr>
+            <th>Usage ID</th>
+            <th>Time Used</th>
+            <th>Distance Covered</th>
+            <th>Usage Date</th> <!-- Add a new column for Usage Date -->
+        </tr>
+        {% for entry in usage_history.usage_history %}
+        <tr>
+            <td>{{ entry.UsageID }}</td>
+            <td>{{ entry.TimeUsed }}</td>
+            <td>{{ entry.DistanceCovered }}</td>
+            <td>{{ entry.UsageDate }}</td> <!-- Display Usage Date -->
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

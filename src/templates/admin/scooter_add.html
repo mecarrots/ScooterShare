@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Scooter</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='global.css') }}">
+</head>
+<body>
+    <p><a href="/admin_page">Back</a></p>
+    <h1>Add Scooter</h1>
+    
+    <form action="/add_scooter" method="POST">
+        <label for="make">Make:</label>
+        <input type="text" id="make" name="make" required><br>
+        <label for="colour">Colour:</label>
+        <input type="text" id="colour" name="colour" required><br>
+
+        <label for="location">Location:</label>
+        <input type="text" id="location" name="location" required><br>
+
+        <label for="remaining_power">Remaining Power:</label>
+        <input type="number" id="remaining_power" name="remaining_power" required><br>
+
+        <label for="cost_per_time">Cost Per Time:</label>
+        <input type="text" id="cost_per_time" name="cost_per_time" pattern="^\d+(\.\d{1,2})?$" required><br>
+        
+        <label for="status">Status:</label>
+        <select id="status" name="status" required>
+            <option value="Available">Available</option>
+            <option value="Occupying">Occupying</option>
+            <option value="To Be Repaired">To Be Repaired</option>
+            <option value="Under Repair">Under Repair</option>
+        </select><br>
+        
+
+        <input type="submit" value="Submit">
+    </form>
+
+</body>
+</html>

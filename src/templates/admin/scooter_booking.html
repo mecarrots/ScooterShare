@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='global.css') }}">
+</head>
+<body>
+    <p><a  href="/view_all_scooters">Go back</a></p>
+    <h2>Scooter Booking History</h2>
+         <table>
+            <tr>
+                <th>Booking ID</th>
+                <th>Scooter ID</th>
+                <th>Booking Time</th>
+                <th>Booking Status</th>
+            </tr>
+            {%for scooter in booking_history.booking_history%}
+                <tr>
+                    <td>{{scooter.BookingID}}</td>
+                    <td>{{scooter.ScooterID}}</td>
+                    <td>{{scooter.BookingTime}}</td>
+                    <td>{{scooter.BookingStatus}}</td>
+                </tr>
+            {%endfor%}
+        </table>
+</body>
+</html>

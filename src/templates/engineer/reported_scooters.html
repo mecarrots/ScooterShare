@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Reported Scooter Locations</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='global.css') }}">
+</head>
+<body>
+    <h2>Reported Scooter Locations</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Make</th>
+                <th>Colour</th>
+                <th>Location</th>
+                <th>Remaining Power (%)</th>
+                <th>Cost Per Time ($)</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for scooter in reported_scooters.scooters %}
+                <tr>
+                    <td>{{ scooter.Make }}</td>
+                    <td>{{ scooter.Colour }}</td>
+                    <td>{{ scooter.Location }}</td>
+                    <td>{{ scooter.RemainingPower }}</td>
+                    <td>{{ scooter.CostPerTime }}</td>
+                    <td>{{ scooter.Status }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <br>
+    <a href="/engineer_page">Back to Engineer Home</a>
+</body>
+</html>

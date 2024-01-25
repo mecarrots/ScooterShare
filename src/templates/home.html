@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='loginstyle.css') }}">
+</head>
+<body>
+    <p id="error-message">{{ message }}</p>
+    <h2>Home Page</h2>
+    <p>
+        <a href="/login_form">Login</a>
+    </p>
+    <p>
+        <a href="/register_form">Register</a>
+    </p>
+</body>
+</html>

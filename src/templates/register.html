@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Register</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='loginstyle.css') }}">
+</head>
+
+<body>
+    <h2>Registration</h2>
+    <form action="/register/1" method="post">
+        <input type="hidden" name="userType" value="customer">
+        Username: <input type="text" name="userName" required><br><br>
+        Password: <input type="password" name="password" required><br><br>
+        First Name: <input type="text" name="firstName" required><br><br>
+        Last Name: <input type="text" name="lastName" required><br><br>
+        Mobile Phone Number: <input type="text" name="phoneNumber" maxlength="10" minlength="10" required><br><br>
+        Email: <input type="email" name="email" required><br><br>
+        <input type="submit" value="Register">
+    </form>
+    <p id="error-message">{{ message }}</p>
+    <p><a href="/login_form">Login</a></p>
+</body>
+</html>

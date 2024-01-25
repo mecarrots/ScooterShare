@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Available Scooters</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='global.css') }}">
+</head>
+<body>
+    <p><a href="/customer_page_render">Back</a></p>
+    <h1>Available Scooters</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Colour</th>
+                <th>Cost Per Time</th>
+                <th>Location</th>
+                <th>Make</th>
+                <th>Remaining Power</th>
+                <th>Scooter ID</th>
+                <th>Status</th>
+                <th>Book</th>
+                <th><a href="/customer_review" style="text-decoration: none, color(blue)">View Reviews</a></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for scooter in scooters.scooters %}
+                <tr>
+                    <td style="text-align: center;">{{ scooter['Colour'] }}</td>
+                    <td style="text-align: center;">{{ scooter['CostPerTime'] }}</td>
+                    <td style="text-align: center;">{{ scooter['Location'] }}</td>
+                    <td style="text-align: center;">{{ scooter['Make'] }}</td>
+                    <td style="text-align: center;">{{ scooter['RemainingPower'] }}</td>
+                    <td style="text-align: center;">{{ scooter['ScooterID'] }}</td>
+                    <td style="text-align: center;">{{ scooter['Status'] }}</td>
+                    <td style="text-align: center;"><a href="/book_scooter_page/{{ scooter['ScooterID'] }}">Book</a></td>
+                    <td style="text-align: center;"><a href="/add_reviews/{{ scooter['ScooterID'] }}">Add Reviews</a></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

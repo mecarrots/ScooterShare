@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Customer Active Bookings</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='global.css') }}">
+</head>
+<body>
+    <p><a href="/customer_page_render">Go back</a></p>
+    <h2>My Booking History</h2>
+    <table>
+        <tr>
+            <th>Booking ID</th>
+            <th>Scooter ID</th>
+            <th>Booking Time</th>
+            <th>Booking Status</th>
+            <th>Lock Status</th>
+            <th>Cancel Booking</th>
+        </tr>
+        {% for booking in booking_history.booking_history %}
+            <tr>
+                <td>{{ booking.BookingID }}</td>
+                <td>{{ booking.ScooterID }}</td>
+                <td>{{ booking.BookingTime }}</td>
+                <td>{{ booking.BookingStatus }}</td>
+                <td>{{ booking.LockStatus }}</td>
+                <td style="text-align: center;">
+                    {% if booking.BookingStatus != 'Cancelled' %}
+                        <a href="/customer_cancel_booking/{{ booking.BookingID }}">Cancel</a>
+                    {% endif %}
+                </td>
+                <td><a  href="/customer_report_scooter/{{ booking.ScooterID }}">Report Issue</a></td>
+            </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

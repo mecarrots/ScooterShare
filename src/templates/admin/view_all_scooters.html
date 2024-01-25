@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>View All Scooters</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='global.css') }}">
+</head>
+<body>
+    <p><a href="/admin_page">Back</a></p>
+    <h1>View All Scooters</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Colour</th>
+                <th>Cost Per Time</th>
+                <th>Location</th>
+                <th>Make</th>
+                <th>Remaining Power</th>
+                <th>Scooter ID</th>
+                <th>Status</th>
+                <th>View Booking History</th>
+                <th>View Usage History</th>
+                <th>Edit Scooter</th>
+                <th>View Data Visualisation</th>
+                <th>Report Scooter</th>
+                <th>Delete Scooter</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for scooter in scooters.scooters %}
+                <tr>
+                    <td style="text-align: center;">{{ scooter['Colour'] }}</td>
+                    <td style="text-align: center;">{{ scooter['CostPerTime'] }}</td>
+                    <td style="text-align: center;">{{ scooter['Location'] }}</td>
+                    <td style="text-align: center;">{{ scooter['Make'] }}</td>
+                    <td style="text-align: center;">{{ scooter['RemainingPower'] }}</td>
+                    <td style="text-align: center;">{{ scooter['ScooterID'] }}</td>
+                    <td style="text-align: center;">{{ scooter['Status'] }}</td>
+                    <td style="text-align: center;"><a href="/scooter_booking/{{ scooter['ScooterID'] }}">View</a></td>
+                    <td style="text-align: center;"><a href="/scooter_usage_admin/{{ scooter['ScooterID'] }}">View</a></td>
+                    <td style="text-align: center;"><a href="/scooter_edit/{{ scooter['ScooterID'] }}">Edit</a></td>
+                    <td style="text-align: center;"><a href="/scooter_visualisation/{{ scooter['ScooterID'] }}">View</a></td>    
+                    <td style="text-align: center;"><a href="/report_scooter/{{ scooter['ScooterID'] }}">Report</a></td>
+                    <td style="text-align: center;"><a href="/scooter_delete/{{ scooter['ScooterID'] }}">Delete</a></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

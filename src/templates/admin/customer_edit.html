@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Customer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='global.css') }}">
+</head>
+<body>
+    <p><a href="/customer_detail">Back</a></p>
+    <h2>Edit Customer</h2>
+    <form method="POST" action="/edit_user" enctype="multipart/form-data">
+        <input type="hidden" name="user_id" value="{{ customer_edit.customer_details.UserID}}">
+        <input type="hidden" name="usertype" value="{{ customer_edit.customer_details.UserType}}">
+        <table>
+            <tr>
+                <td>Username:</td>
+                <td><input type="text" name="username" value="{{ customer_edit.customer_details.Username }}"></td>
+            </tr>
+            <tr>
+                <td>First Name:</td>
+                <td><input type="text" name="firstname" value="{{ customer_edit.customer_details.FirstName }}"></td>
+            </tr>
+            <tr>
+                <td>Last Name:</td>
+                <td><input type="text" name="lastname" value="{{ customer_edit.customer_details.LastName }}"></td>
+            </tr>
+            <tr>
+                <td>Phone Number:</td>
+                <td><input type="text" name="phonenumber" value="{{ customer_edit.customer_details.PhoneNumber }}"></td>
+            </tr>
+            <tr>
+                <td>Email:</td>
+                <td><input type="text" name="email" value="{{ customer_edit.customer_details.Email }}"></td>
+            </tr>
+            <tr>
+                <td>Available Money:</td>
+                <td><input type="text" name="availablemoney" value="{{ customer_edit.customer_details.AvailableMoney }}"></td>
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align: center;">
+                    <input type="submit" value="Save Changes">
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

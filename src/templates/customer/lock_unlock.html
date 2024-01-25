@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lock or Unlock a scooter</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='global.css') }}">
+</head>
+<body>
+    <p><a href="/customer_page_render">Back</a></p>
+    <p id="error-message">{{ message }}</p>
+    <!-- this displays a dropdown of all scooters that are unlockable by the user (active locked bookings) -->
+    <h2>Unlock a scooter (Choose scooter to unlock by ID)</h2>
+
+    {% for booking in unlockable.booking_history %}
+        <p>Unlock Scooter</p>
+        <p id="{{booking.BookingID}}" value="{{booking.ScooterID}}">Scooter {{booking.ScooterID}}</p>
+        <td style="text-align: center;"><a href="/customer_unlock_scooter/{{ booking.ScooterID }}/{{ booking.BookingID }}">Unlock</a></td>
+    {% endfor %}
+
+    
+
+
+    <!-- this displays a dropdown of all scooters that are lockable by the user (active unlocked bookings) -->
+    <h2>Lock a scooter and end booking (Choose scooter to lock by ID)</h2>
+
+    {% for booking in lockable.booking_history %}
+    <form action="/customer_lock_scooter/{{ booking.ScooterID }}/{{ booking.BookingID }}" method="get">
+        <p>Lock Scooter</p>
+        <p id="{{booking.BookingID}}" value="{{booking.ScooterID}}">Scooter {{booking.ScooterID}}</p>
+        <input type="text" name="newLocation" placeholder="New Location" required>
+        <input type="submit" value="Lock">
+    </form>
+{% endfor %}
+
+        
+</body>
+</html>

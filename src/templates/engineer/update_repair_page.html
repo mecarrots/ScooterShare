@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Update Repair Status</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='global.css') }}">
+</head>
+<body>
+    <h2>Update Repair Status</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Request ID</th>
+                <th>Scooter ID</th>
+                <th>UserID</th>
+                <th>Repair Status</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for repair in repair_data.repairs %}
+                <tr>
+                    <td>{{ repair.RequestID }}</td>
+                    <td>{{ repair.ScooterID }}</td>
+                    <td>{{ repair.UserID }}</td>
+                    <td>{{ repair.RepairStatus }}</td>
+                    <td>{{ repair.Description }}</td>
+                    <td>
+                        <!-- TODO: Set change this endpoint to work -->
+                        <form action="/update_repair_state" method="post">
+                            <input type="hidden" name="request_id" value="{{ repair.RequestID }}">
+                            <input type="submit" value="Swap Status">
+                        </form>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <br>
+    <a href="/engineer_page">Back to Engineer Home</a>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Customer Active Bookings</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='global.css') }}">
+</head>
+<body>
+    <p><a  href="/customer_page_render">Go back</a></p>
+    <h2>Customer Balance for {{session['username']}}</h2>
+    <p>Customer Balance: ${{balance.balance}}</p>
+    <form action="/update_user_money" method="post">
+        <input type="number" name="topup_amount" step="any" placeholder="Amount to topup">
+        <input type="submit" value="Top Up">
+    </form>
+
+</body>
+</html>

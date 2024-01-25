@@ -1,0 +1,73 @@
+/* Apply basic styles to the body and headings */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+h2 {
+    color: #333;
+    margin: 20px 0;
+}
+
+/* Style the Back link at the top */
+p a {
+    color: #333;
+    text-decoration: none;
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    border-radius: 5px;
+    margin: 10px;
+}
+
+p a:hover {
+    background-color: #555;
+    text-decoration: none;
+}
+
+/* Style the table */
+table {
+    border-collapse: collapse;
+    width: 80%;
+    margin: 0 auto;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Style table headers */
+th {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+}
+
+/* Style table rows */
+tr {
+    border-bottom: 1px solid #ccc;
+}
+
+/* Style table data cells */
+td {
+    padding: 10px;
+}
+
+/* Style the Edit links in the last column */
+td a {
+    color: #333;
+    text-decoration: none;
+    display: inline-block;
+    padding: 5px 10px;
+    background-color: #333;
+    color: #fff;
+    border-radius: 5px;
+}
+
+td a:hover {
+    background-color: #555;
+    text-decoration: none;
+}

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reviews</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='global.css') }}">
+</head>
+<body>
+    <p><a href="/view_available_scooters">Back to Available Scooters</a></p>
+    <h1>Reviews</h1>
+    <!--make a for loop to display all customer reviews with the userid, scooterid, review description, and rating-->
+    <ul style = "list-style-type: none">
+        {% for review in review_id.review %}
+            {% for customer in customers.customer %}
+                {% if customer['user_id'] == review['user_id'] %}
+                    <li>Name: {{ customer['username'] }}</li>
+                {% endif %}
+            {% endfor %}
+            {% for scooters in scooters.scooters %}
+                {% if scooters['ScooterID'] == review['scooter_id'] %}
+                    <li>Scooter: {{ scooters['Make'] }}</li>
+                {% endif %}
+            {% endfor %}
+            <li>Review: {{ review['review'] }}</li>
+            <li>Rating: {{ review['rating'] }}</li>
+            <hr>
+        {% endfor %}
+    </ul>
+</body>
+</html>

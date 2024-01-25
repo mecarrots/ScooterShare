@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='global.css') }}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Usage Report for Scooter {{ visualisation.scooter_id }}</title>
+</head>
+<body>
+    <p><a href="/view_all_scooters">Go back</a></p>
+    <h1>Usage Report for Scooter {{ visualisation.scooter_id }}</h1>
+
+    <h2>Daily Distance Covered</h2>
+    <img src="{{ url_for('static', filename='daily_distance_chart.png') }}" alt="Daily Distance Chart">
+
+    <h2>Weekly Time Used</h2>
+    <img src="{{ url_for('static', filename='weekly_time_chart.png') }}" alt="Weekly Time Chart">
+</body>
+</html>

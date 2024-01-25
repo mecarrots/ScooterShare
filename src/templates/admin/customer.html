@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='global.css') }}">
+</head>
+<body>
+    <p><a href="/admin_page">Back</a></p>
+    <h2>Customer Detail</h2>
+         <table>
+            <tr>
+                <th>Firstname </th>
+                <th>Lastname </th>
+                <th>Phone Number </th>
+                <th>Email </th>
+                <th>Balance </th>
+                <th>Edit Customer </th>
+            </tr>
+            {%for users in user%}
+                <tr>
+                    <td>{{users[4]}}</td>
+                    <td>{{users[5]}}</td>
+                    <td>{{users[6]}}</td>
+                    <td>{{users[7]}}</td>
+                    <td>{{users[8]}}</td>
+                    <td style="text-align: center;"><a href="/customer_edit/{{ users[0] }}">Edit</a></td>
+                </tr>
+            {%endfor%}
+        </table>
+</body>
+</html>

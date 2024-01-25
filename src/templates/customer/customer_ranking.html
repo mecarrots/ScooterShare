@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ranking</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='global.css') }}">
+</head>
+<body>
+    <p><a href="/customer_page_render">Back to Customer Page</a></p>
+    <h1>Ranking</h1>
+    <ul style = "list-style-type: none">
+        {% for ranking in ranking.ranking|sort(attribute='points', reverse=true) %}
+            {% for customer in customers.customer %}
+                {% if customer['user_id'] == ranking['user_id'] %}
+                    <li>Name: {{ customer['username'] }}</li>
+                {% endif %}
+            {% endfor %}
+            <li>Points: {{ ranking['points'] }}</li>
+            <hr>
+        {% endfor %}
+    </ul>
+</body>
+</html>

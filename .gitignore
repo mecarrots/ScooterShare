@@ -1,0 +1,10 @@
+# Ignore Flask session folder
+flask_session/
+
+# Ignore __pycache__ folders
+__pycache__/
+
+# ignore local session database
+instance/
+
+db.sqlite3

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Scooter</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='global.css') }}">
+</head>
+<body>
+    <p><a  href="/view_all_scooters">Go back</a></p>
+    <h1>Edit Scooter</h1>
+    <form action="/edit_scooter" method="POST">
+        <input type="hidden" name="scooter_id" value="{{ scooter_edit['scooter_details']['ScooterID'] }}">
+        <label for="make">Make:</label>
+        <input type="text" id="make" name="make" required value="{{ scooter_edit['scooter_details']['Make'] }}"><br>
+        <label for="colour">Colour:</label>
+        <input type="text" id="colour" name="colour" required value="{{ scooter_edit['scooter_details']['Colour'] }}"><br>
+
+        <label for="location">Location:</label>
+        <input type="text" id="location" name="location" required value="{{ scooter_edit['scooter_details']['Location'] }}"><br>
+
+        <label for="remaining_power">Remaining Power:</label>
+        <input type="number" id="remaining_power" name="remaining_power" required value="{{ scooter_edit['scooter_details']['RemainingPower'] }}"><br>
+
+        
+        <label for="cost_per_time">Cost Per Time:</label>
+        <input type="text" id="cost_per_time" name="cost_per_time" pattern="^\d+(\.\d{1,2})?$" required value="{{ scooter_edit['scooter_details']['CostPerTime'] }}"><br>
+        
+        <label for="status">Status:</label>
+        <select id="status" name="status" required>
+            <option value="Available" {% if scooter_edit['scooter_details']['Status'] == 'Available' %}selected{% endif %}>Available</option>
+            <option value="Occupying" {% if scooter_edit['scooter_details']['Status'] == 'Occupying' %}selected{% endif %}>Occupying</option>
+            <option value="To Be Repaired" {% if scooter_edit['scooter_details']['Status'] == 'To Be Repaired' %}selected{% endif %}>To Be Repaired</option>
+            <option value="Under Repair" {% if scooter_edit['scooter_details']['Status'] == 'Under Repair' %}selected{% endif %}>Under Repair</option>
+        </select><br>
+        
+
+        <input type="submit" value="Update">
+    </form>
+
+</body>
+</html>

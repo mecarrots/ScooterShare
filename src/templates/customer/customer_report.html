@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Report Scooter</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='global.css') }}">
+</head>
+<body>
+    <p><a href="/customer_view_bookings">Go back</a></p>
+    <h1>Report Scooter Issues</h1>
+    <h2>for this scooter:</h2>
+    <p><strong>User ID:</strong> {{ user_id_ }}</p>
+    <p><strong>Scooter ID:</strong> {{ scooter['scooter_details']['ScooterID'] }}</p>
+
+    <form action="/add_repair/1" method="POST">
+        <input type="hidden" name="scooter_id" value="{{ scooter['scooter_details']['ScooterID'] }}">
+        <input type="hidden" name="user_id" value="{{ user_id_ }}">
+        
+        <p>Issue Description:</p>
+        <textarea name="description" rows="4" cols="50" required></textarea><br><br>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>

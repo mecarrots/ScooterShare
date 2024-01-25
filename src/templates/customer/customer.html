@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Customer Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='global.css') }}">
+</head>
+<body>
+    <h2>Welcome to Customer Dashboard!</h2>
+    <p>
+        <!-- view logged in customers usage history -->
+        <a href="/customer_usage_history_render">Your scooter usage history</a>
+    </p>
+    <p>
+        <!-- view all available scooters that can be booked -->
+        <a href="/view_available_scooters">View Available Scooters</a>
+    </p>
+    <p>
+        <!-- view all customer bookings with option to cancel -->
+        <a href="/customer_view_bookings">My bookings</a>
+    </p>
+    <p>
+        <!-- view account balance and function to topup account balance -->
+        <a href="/customer_view_balance">My balance and topup</a>
+    </p>
+    <p>
+        <!-- unlock or lock scooter -->
+        <a href="/customer_lock_unlock">Lock and Unlock Scooters</a>
+    </p>
+    <p>
+        <!-- ranking for booking scooters -->
+        <a href="/customer_ranking">Customer Ranks</a>
+    </p>
+    <p>{{ message }}</p>
+    <p>
+        <a href="/logout">Logout</a>
+    </p>
+</body>
+</html>

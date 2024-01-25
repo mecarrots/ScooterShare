@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create Customer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='global.css') }}">
+</head>
+
+<body>
+    <p><a href="/admin_page">Back</a></p>
+    <h2>Create Customer</h2>
+    <form action="/register/2" method="post">
+        <input type="hidden" name="userType" value="customer">
+        Username: <input type="text" name="userName"><br><br>
+        Password: <input type="password" name="password"><br><br>
+        First Name: <input type="text" name="firstName"><br><br>
+        Last Name: <input type="text" name="lastName"><br><br>
+        Phone Number: <input type="text" name="phoneNumber" maxlength="10"><br><br>
+        Email: <input type="email" name="email"><br><br>
+        <input type="submit" value="Create">
+    </form>
+</body>
+</html>

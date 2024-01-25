@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='loginstyle.css') }}">
+</head>
+<body>
+    <h2>Login</h2>
+    <div id="error-message" style="color: red;"></div> <!-- Placeholder for potential error messages -->
+    <form action="/login" method="post">
+        Email: <input type="text" name="email"><br><br>
+        Password: <input type="password" name="password"><br><br>
+        <input type="submit" value="Login">
+    </form>
+    <p id="error-message">{{ message }}</p>
+    <p><a href="/register_form">Register</a></p>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='global.css') }}">
+</head>
+<body>
+    <h2>Scooter Status</h2>
+         <table>
+            <tr>
+                <th>Scooter ID </th>
+                <th>Make </th>
+                <th>Status </th>
+            </tr>
+            {%for scooter in scooter_status.scooter_statuses%}
+                <tr>
+                    <td>{{scooter.id}}</td>
+                    <td>{{scooter.make}}</td>
+                    <td>{{scooter.status}}</td>
+                </tr>
+            {%endfor%}
+        </table>
+</body>
+</html>
