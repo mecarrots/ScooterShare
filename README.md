@@ -29,7 +29,7 @@ Full-stack Scooter Share application built to run on two Raspberry Pi's, utilizi
 ### Notes
 - Utilized a CI pipeline, ran using Github Actions to ensure PEP8 coding style.
 - Github utilized for version control, Trello for project management.
-- This assignment recieved a HD (high distinction).
+- This assignment received a HD (high distinction).
 
 ## How to run:
 *Database is no longer hosted, will not function as intended.*
